@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Levels/cameraTD.gd" type="Script" id=1]
+
+[node name="cameraTD" type="Camera2D"]
+visible = false
+scale = Vector2( 0.333333, 0.333333 )
+current = true
+smoothing_enabled = true
+script = ExtResource( 1 )
