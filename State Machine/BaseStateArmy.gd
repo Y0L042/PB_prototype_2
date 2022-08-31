@@ -1,6 +1,11 @@
 extends Node
 
-class_name BaseState
+class_name BaseStateArmy
+
+enum State {
+	Null,
+	ArmyMarch
+}
 
 var parent
 

@@ -2,7 +2,7 @@ extends YSort
 
 class_name Army
 
-onready var state_manager = $StateManager
+onready var state_manager = $StateManagerArmy
 
 var army_position = Vector2.ZERO
 
