@@ -3,6 +3,7 @@ extends YSort
 class_name Army
 
 onready var state_manager = $StateManagerArmy
+onready var enemy_detection = $EnemyDetection
 
 var army_position = Vector2.ZERO
 
@@ -11,6 +12,7 @@ var target = Vector2.ZERO
 
 func _ready() -> void:
 	state_manager.init(self)
+	enemy_detection.set_parent(self)
 	army_position = calc_center_of_group()
 
 func _physics_process(delta: float) -> void:
@@ -20,6 +22,11 @@ func _physics_process(delta: float) -> void:
 	
 func _process(delta: float) -> void:
 	state_manager._process(delta)
+
+func set_child_actor_army():
+	for child in get_children():
+		if child.is_in_group("Actor"):
+			child.set_army(self)
 
 func calc_center_of_group():
 	var center = Vector2.ZERO

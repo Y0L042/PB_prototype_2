@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Army/Army.gd" type="Script" id=1]
 [ext_resource path="res://State Machine/StateManagerArmy.gd" type="Script" id=2]
 [ext_resource path="res://Army/army_march.gd" type="Script" id=3]
+[ext_resource path="res://Army/EnemyDetection.gd" type="Script" id=4]
+[ext_resource path="res://Army/ArmyCombat.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 395.612
 
 [node name="Army" type="YSort" groups=["Army"]]
 script = ExtResource( 1 )
@@ -13,3 +18,15 @@ starting_state = NodePath("ArmyMarch")
 
 [node name="ArmyMarch" type="Node" parent="StateManagerArmy"]
 script = ExtResource( 3 )
+
+[node name="ArmyCombat" type="Node" parent="StateManagerArmy"]
+script = ExtResource( 5 )
+
+[node name="EnemyDetection" type="Area2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemyDetection"]
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="EnemyDetection" to="EnemyDetection" method="_on_EnemyDetection_body_entered"]
+[connection signal="body_exited" from="EnemyDetection" to="EnemyDetection" method="_on_EnemyDetection_body_exited"]

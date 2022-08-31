@@ -2,7 +2,7 @@ extends YSort
 
 
 var army : Army 
-onready var camera_td = $"%cameraTD"
+
 
 func _ready():
 	for child in get_children(): #set army
@@ -11,4 +11,4 @@ func _ready():
 
 func _physics_process(_delta):
 	army.target = get_global_mouse_position() #get_viewport().get_mouse_position()
-	camera_td.set_global_position(army.army_position)
+

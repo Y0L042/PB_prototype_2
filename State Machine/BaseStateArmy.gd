@@ -5,6 +5,7 @@ class_name BaseStateArmy
 enum State {
 	Null,
 	ArmyMarch
+	ArmyCombat
 }
 
 var parent

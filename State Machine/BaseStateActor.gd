@@ -5,6 +5,7 @@ class_name BaseStateActor
 enum State {
 	Null,
 	ActorMarch
+	ActorCombat
 }
 
 var parent

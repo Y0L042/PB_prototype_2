@@ -7,7 +7,8 @@ export (NodePath) var starting_state
 var current_state: BaseStateArmy
 
 onready var states = {
-	BaseStateArmy.State.ArmyMarch : $ArmyMarch
+	BaseStateArmy.State.ArmyMarch : $ArmyMarch,
+	BaseStateArmy.State.ArmyCombat : $ArmyCombat
 }
 
 func init(parent):

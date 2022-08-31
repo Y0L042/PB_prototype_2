@@ -12,4 +12,5 @@ scale = Vector2( 34.24, 51.2486 )
 texture = ExtResource( 1 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="."]
+visible = false
 navpoly = SubResource( 1 )
