@@ -10,7 +10,7 @@ func _physics_process(_delta: float):
 	parent.nav_agent.set_target_location(parent.get_target())
 	var next_target = parent.nav_agent.get_next_location()
 	
-	march_velocity = parent.position.direction_to(next_target).normalized() * MARCH_SPEED
+	march_velocity = parent.get_global_position().direction_to(next_target).normalized() * MARCH_SPEED
 	parent.nav_agent.set_velocity(march_velocity)
 	
 	parent.move_and_slide(march_velocity)

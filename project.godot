@@ -30,6 +30,11 @@ _global_script_classes=[ {
 "path": "res://Actor/blackboard.gd"
 }, {
 "base": "Node2D",
+"class": "StateManager",
+"language": "GDScript",
+"path": "res://State Machine/StateManager.gd"
+}, {
+"base": "Node2D",
 "class": "StateManagerActor",
 "language": "GDScript",
 "path": "res://State Machine/StateManagerActor.gd"
@@ -44,6 +49,7 @@ _global_script_class_icons={
 "BaseStateActor": "",
 "BaseStateArmy": "",
 "Blackboard": "",
+"StateManager": "",
 "StateManagerActor": "",
 "StateManagerArmy": ""
 }

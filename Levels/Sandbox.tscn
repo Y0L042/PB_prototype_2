@@ -21,101 +21,104 @@ unique_name_in_owner = true
 
 [node name="Player Army" parent="Controllers/PlayerController" instance=ExtResource( 1 )]
 unique_name_in_owner = true
+position = Vector2( 2758, -1440 )
 
 [node name="Actor1" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 1695, 89 )
+position = Vector2( -46, 52 )
 
 [node name="Actor2" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 2018, 153 )
+position = Vector2( 277, 116 )
 
 [node name="Actor3" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 1037, 121 )
+position = Vector2( -704, 84 )
 
 [node name="Actor4" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 1640, -274 )
+position = Vector2( -101, -311 )
 
 [node name="Actor5" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 1611, 510 )
+position = Vector2( -130, 473 )
 
 [node name="Actor6" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 1192, -178 )
+position = Vector2( -549, -215 )
 
 [node name="Actor7" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 2080, -212 )
+position = Vector2( 339, -249 )
 
 [node name="Actor8" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 2139, 417 )
+position = Vector2( 398, 380 )
 
 [node name="Actor9" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 1289, 383 )
+position = Vector2( -452, 346 )
 
 [node name="Actor10" parent="Controllers/PlayerController/Player Army" instance=ExtResource( 2 )]
-position = Vector2( 2349, 80 )
+position = Vector2( 608, 43 )
 
 [node name="NPCController1" parent="Controllers" instance=ExtResource( 6 )]
 
 [node name="NPCArmy1" parent="Controllers/NPCController1" instance=ExtResource( 1 )]
+position = Vector2( -2341, 1588 )
 
 [node name="Actor1" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -1816, -133 )
+position = Vector2( 216, -160 )
 
 [node name="Actor2" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -1479, -152 )
+position = Vector2( 553, -179 )
 
 [node name="Actor3" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -1822, 242 )
+position = Vector2( 210, 215 )
 
 [node name="Actor4" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -1485, 223 )
+position = Vector2( 547, 196 )
 
 [node name="Actor5" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -2210, -228 )
+position = Vector2( -178, -255 )
 
 [node name="Actor6" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -2495, 159 )
+position = Vector2( -463, 132 )
 
 [node name="Actor7" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -2158, 140 )
+position = Vector2( -126, 113 )
 
 [node name="Actor8" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -2501, 534 )
+position = Vector2( -469, 507 )
 
 [node name="Actor9" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -2164, 515 )
+position = Vector2( -132, 488 )
 
 [node name="Actor10" parent="Controllers/NPCController1/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -2889, 64 )
+position = Vector2( -857, 37 )
 
 [node name="NPCController2" parent="Controllers" instance=ExtResource( 6 )]
 
 [node name="NPCArmy1" parent="Controllers/NPCController2" instance=ExtResource( 1 )]
+position = Vector2( -4959, -2239 )
 
 [node name="Actor1" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5271, -3677 )
+position = Vector2( 447, -206 )
 
 [node name="Actor2" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -4934, -3696 )
+position = Vector2( 784, -225 )
 
 [node name="Actor3" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5277, -3302 )
+position = Vector2( 441, 169 )
 
 [node name="Actor4" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -4940, -3321 )
+position = Vector2( 778, 150 )
 
 [node name="Actor5" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5665, -3772 )
+position = Vector2( 53, -301 )
 
 [node name="Actor6" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5950, -3385 )
+position = Vector2( -232, 86 )
 
 [node name="Actor7" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5613, -3404 )
+position = Vector2( 105, 67 )
 
 [node name="Actor8" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5956, -3010 )
+position = Vector2( -238, 461 )
 
 [node name="Actor9" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5619, -3029 )
+position = Vector2( 99, 442 )
 
 [node name="Actor10" parent="Controllers/NPCController2/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -6344, -3480 )
+position = Vector2( -626, -9 )

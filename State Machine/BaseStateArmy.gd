@@ -4,7 +4,7 @@ class_name BaseStateArmy
 
 enum State {
 	Null,
-	ArmyMarch
+	ArmyMarch,
 	ArmyCombat
 }
 

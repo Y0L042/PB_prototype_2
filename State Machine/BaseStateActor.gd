@@ -4,7 +4,7 @@ class_name BaseStateActor
 
 enum State {
 	Null,
-	ActorMarch
+	ActorMarch,
 	ActorCombat
 }
 

@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
-onready var blackboard = $blackboard
+var actor = self
+
 onready var nav_agent = $NavigationAgent2D
 onready var state_manager = $StateManagerActor
 

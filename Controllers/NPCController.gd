@@ -10,5 +10,5 @@ func _ready():
 			army = child
 
 func _physics_process(_delta):
-	army.target = get_global_mouse_position() #get_viewport().get_mouse_position()
+	army.target = army.army_position
 
