@@ -8,7 +8,8 @@ var current_state: BaseStateActor
 
 onready var states = {
 	BaseStateActor.State.ActorMarch : $ActorMarch,
-	BaseStateActor.State.ActorCombat : $ActorCombat
+	BaseStateActor.State.ActorCombat : $ActorCombat,
+	BaseStateActor.State.ActorDead : $ActorDead
 }
 
 func init(parent):
@@ -17,14 +18,14 @@ func init(parent):
 	change_state(BaseStateActor.State.ActorMarch)
 	
 func _physics_process(delta: float) -> void:
-	var new_state = current_state._physics_process(delta) #returns a value, like BT
+	var new_state = current_state.physics_run(delta) #returns a value, like BT
 	if new_state:# != BaseStateActor.State.Null: #modify to check for good return value
 		change_state(new_state)
 
-func _process(delta: float) -> void:
-	var new_state = current_state._process(delta) #returns a value, like BT
-	if new_state:# != BaseStateActor.State.Null: #modify to check for good return value
-		change_state(new_state)
+#func _process(delta: float) -> void:
+#	var new_state = current_state.run(delta) #returns a value, like BT
+#	if new_state:# != BaseStateActor.State.Null: #modify to check for good return value
+#		change_state(new_state)
 
 func change_state(new_state):
 	if current_state: #catches null values

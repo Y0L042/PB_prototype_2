@@ -22,8 +22,9 @@ func _physics_process(delta: float) -> void:
 	enemy_detector.set_global_position(army_position)
 
 	
-func _process(delta: float) -> void:
-	state_manager._process(delta)
+func _process(_delta: float) -> void:
+#	state_manager._process(delta)
+	pass
 
 func set_child_actor_army():
 	for child in get_children():

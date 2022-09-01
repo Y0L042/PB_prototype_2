@@ -1,16 +1,18 @@
 extends BaseStateArmy
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
 
+func enter():
+	for child in parent.get_children():
+		if child.is_in_group("Actor"):
+			child.state_manager.change_state(BaseStateActor.State.ActorCombat)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func physics_run(_delta):
+	set_children_targets()
+
+func set_children_targets():
+	for child in parent.get_children():
+		if child.is_in_group("Actor"):
+			child.set_target(parent.target)

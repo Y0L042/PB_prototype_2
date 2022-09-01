@@ -17,14 +17,14 @@ func init(parent):
 	change_state(BaseStateArmy.State.ArmyMarch)
 	
 func _physics_process(delta: float) -> void:
-	var new_state = current_state._physics_process(delta) #returns a value, like BT
+	var new_state = current_state.physics_run(delta) #returns a value, like BT
 	if new_state: #!= BaseStateArmy.State.Null: #modify to check for good return value
 		change_state(new_state)
 
-func _process(delta: float) -> void:
-	var new_state = current_state._process(delta) #returns a value, like BT
-	if new_state: # != BaseStateArmy.State.Null: #modify to check for good return value
-		change_state(new_state)
+#func _process(delta: float) -> void:
+#	var new_state = current_state.run(delta) #returns a value, like BT
+#	if new_state: # != BaseStateArmy.State.Null: #modify to check for good return value
+#		change_state(new_state)
 
 func change_state(new_state):
 	if current_state: #catches null values
