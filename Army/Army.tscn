@@ -1,23 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Army/Army.gd" type="Script" id=1]
-[ext_resource path="res://State Machine/StateManagerArmy.gd" type="Script" id=2]
-[ext_resource path="res://Army/ArmyMarch.gd" type="Script" id=3]
 [ext_resource path="res://Tools/EnemyDetector.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Army/ArmyCombat.gd" type="Script" id=5]
 
 [node name="Army" type="YSort" groups=["Army"]]
 script = ExtResource( 1 )
-
-[node name="StateManagerArmy" type="Node2D" parent="."]
-script = ExtResource( 2 )
-starting_state = NodePath("ArmyMarch")
-
-[node name="ArmyMarch" type="Node" parent="StateManagerArmy"]
-script = ExtResource( 3 )
-
-[node name="ArmyCombat" type="Node" parent="StateManagerArmy"]
-script = ExtResource( 5 )
 
 [node name="EnemyDetector" parent="." instance=ExtResource( 4 )]
 

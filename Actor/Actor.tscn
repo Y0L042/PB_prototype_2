@@ -1,13 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Actor/ActorAnimations.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Actor/ActorCombat.gd" type="Script" id=2]
 [ext_resource path="res://Actor/Actor.gd" type="Script" id=3]
-[ext_resource path="res://Actor/actor_march.gd" type="Script" id=4]
 [ext_resource path="res://Actor/actor_detector.gd" type="Script" id=5]
-[ext_resource path="res://State Machine/StateManagerActor.gd" type="Script" id=6]
 [ext_resource path="res://Actor/animationlist.gd" type="Script" id=7]
-[ext_resource path="res://Actor/ActorDead.gd" type="Script" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.833
@@ -32,20 +28,6 @@ shape = SubResource( 1 )
 script = ExtResource( 7 )
 
 [node name="animations" parent="." instance=ExtResource( 1 )]
-
-[node name="StateManagerActor" type="Node2D" parent="."]
-script = ExtResource( 6 )
-starting_state = NodePath("ActorMarch")
-
-[node name="ActorCombat" type="Node" parent="StateManagerActor"]
-script = ExtResource( 2 )
-
-[node name="ActorMarch" type="Node" parent="StateManagerActor"]
-script = ExtResource( 4 )
-MARCH_SPEED = 200
-
-[node name="ActorDead" type="Node" parent="StateManagerActor"]
-script = ExtResource( 8 )
 
 [node name="actor_detector" type="Area2D" parent="."]
 script = ExtResource( 5 )

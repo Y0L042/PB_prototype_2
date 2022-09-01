@@ -14,15 +14,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Army/Army.gd"
 }, {
+"base": "Node2D",
+"class": "BaseState",
+"language": "GDScript",
+"path": "res://State Machine/BaseState.gd"
+}, {
 "base": "Node",
 "class": "BaseStateActor",
 "language": "GDScript",
-"path": "res://State Machine/BaseStateActor.gd"
+"path": "res://State Machine [dep]/BaseStateActor.gd"
 }, {
 "base": "Node",
 "class": "BaseStateArmy",
 "language": "GDScript",
-"path": "res://State Machine/BaseStateArmy.gd"
+"path": "res://State Machine [dep]/BaseStateArmy.gd"
 }, {
 "base": "Node",
 "class": "Blackboard",
@@ -37,15 +42,16 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "StateManagerActor",
 "language": "GDScript",
-"path": "res://State Machine/StateManagerActor.gd"
+"path": "res://State Machine [dep]/StateManagerActor.gd"
 }, {
 "base": "Node2D",
 "class": "StateManagerArmy",
 "language": "GDScript",
-"path": "res://State Machine/StateManagerArmy.gd"
+"path": "res://State Machine [dep]/StateManagerArmy.gd"
 } ]
 _global_script_class_icons={
 "Army": "",
+"BaseState": "",
 "BaseStateActor": "",
 "BaseStateArmy": "",
 "Blackboard": "",

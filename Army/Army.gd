@@ -2,8 +2,11 @@ extends YSort
 
 class_name Army
 
-onready var state_manager = $StateManagerArmy
+export (NodePath) var controller
+
 onready var enemy_detector = $EnemyDetector
+
+
 
 var army_position = Vector2.ZERO
 
@@ -11,20 +14,25 @@ var army_position = Vector2.ZERO
 var target = Vector2.ZERO
 
 func _ready() -> void:
-	state_manager.init(self)
+	set_controller()
+	controller.init(self)
 	set_child_actor_army()
 	enemy_detector.set_parent(self)
 	army_position = calc_center_of_group()
 
 func _physics_process(delta: float) -> void:
-	state_manager._physics_process(delta)
+	if set_controller():
+		controller._physics_process(delta)
 	army_position = calc_center_of_group()
 	enemy_detector.set_global_position(army_position)
 
-	
-func _process(_delta: float) -> void:
-#	state_manager._process(delta)
-	pass
+
+
+func set_controller():
+	for child in get_children():
+		if child.is_in_group("StateManager"):
+			controller = child
+
 
 func set_child_actor_army():
 	for child in get_children():

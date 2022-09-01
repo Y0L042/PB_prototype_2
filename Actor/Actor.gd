@@ -5,8 +5,9 @@ export (int) var HEALTH = 3
 export (int) var DAMAGE = 1
 var isDead : bool = false
 
+var controller
+
 onready var nav_agent = $NavigationAgent2D
-onready var state_manager = $StateManagerActor
 onready var actor_detector = $actor_detector
 onready var attack_range = $attack_range
 onready var animationlist = $animationlist
@@ -17,17 +18,19 @@ var target setget set_target, get_target
 
 
 func _ready() -> void:
-	state_manager.init(self)
+	set_controller()
+	controller.init(self)
 	actor_detector.set_parent(self)
 	attack_range.set_parent(self)
 	animationlist.set_parent(self)
 
 func _physics_process(delta: float) -> void:
-	state_manager._physics_process(delta)
-	
-func _process(_delta: float) -> void:
-#	state_manager._process(delta)
-	pass
+	controller._physics_process(delta)
+
+func set_controller():
+	for child in get_children():
+		if child.is_in_group("StateManager"):
+			controller = child
 
 
 func set_army(new_army):

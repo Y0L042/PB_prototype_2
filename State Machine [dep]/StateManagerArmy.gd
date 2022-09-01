@@ -1,30 +1,31 @@
 extends Node2D
 
-class_name StateManagerActor
+class_name StateManagerArmy
 
 export (NodePath) var starting_state
 
-var current_state: BaseStateActor
+var current_state: BaseStateArmy
 
 onready var states = {
-	BaseStateActor.State.ActorMarch : $ActorMarch,
-	BaseStateActor.State.ActorCombat : $ActorCombat,
-	BaseStateActor.State.ActorDead : $ActorDead
+	BaseStateArmy.State.ArmyMarch : $ArmyMarch,
+	BaseStateArmy.State.ArmyCombat : $ArmyCombat
 }
 
 func init(parent):
+	set_physics_process(false)
 	for child in get_children():
 		child.parent = parent
-	change_state(BaseStateActor.State.ActorMarch)
+		set_physics_process(true)
+	change_state(BaseStateArmy.State.ArmyMarch)
 	
 func _physics_process(delta: float) -> void:
 	var new_state = current_state.physics_run(delta) #returns a value, like BT
-	if new_state:# != BaseStateActor.State.Null: #modify to check for good return value
+	if new_state: #!= BaseStateArmy.State.Null: #modify to check for good return value
 		change_state(new_state)
 
 #func _process(delta: float) -> void:
 #	var new_state = current_state.run(delta) #returns a value, like BT
-#	if new_state:# != BaseStateActor.State.Null: #modify to check for good return value
+#	if new_state: # != BaseStateArmy.State.Null: #modify to check for good return value
 #		change_state(new_state)
 
 func change_state(new_state):

@@ -1,25 +1,25 @@
 extends Node2D
 
-class_name StateManager
+class_name StateManagerActor
 
-export (String) var starting_state
+export (NodePath) var starting_state
 
-var current_state : BaseState
+var current_state: BaseStateActor
 
-onready var states = {}
-
-func _ready():
-	add_to_group("StateManager")
+onready var states = {
+	BaseStateActor.State.ActorMarch : $ActorMarch,
+	BaseStateActor.State.ActorCombat : $ActorCombat,
+	BaseStateActor.State.ActorDead : $ActorDead
+}
 
 func init(parent):
 	for child in get_children():
 		child.parent = parent
-		child.states = states
-	change_state(starting_state)
+	change_state(BaseStateActor.State.ActorMarch)
 	
 func _physics_process(delta: float) -> void:
 	var new_state = current_state.physics_run(delta) #returns a value, like BT
-	if new_state:  #modify to check for good return value
+	if new_state: #modify to check for good return value
 		change_state(new_state)
 
 
