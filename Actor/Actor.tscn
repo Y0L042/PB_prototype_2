@@ -13,6 +13,7 @@ radius = 291.076
 
 [node name="Actor" type="KinematicBody2D" groups=["Actor"]]
 script = ExtResource( 3 )
+MOVE_SPEED = 300
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true

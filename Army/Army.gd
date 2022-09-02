@@ -2,12 +2,12 @@ extends YSort
 
 class_name Army
 
-export (NodePath) var controller
+var controller
 
 onready var enemy_detector = $EnemyDetector
 
 
-
+export (Resource) var actor_texture
 var army_position = Vector2.ZERO
 
 
@@ -32,12 +32,16 @@ func set_controller():
 	for child in get_children():
 		if child.is_in_group("StateManager"):
 			controller = child
+			break
 
 
 func set_child_actor_army():
 	for child in get_children():
 		if child.is_in_group("Actor"):
 			child.set_army(self)
+#			child.load_spritesheet(actor_texture)
+
+
 
 func calc_center_of_group():
 	var center = Vector2.ZERO

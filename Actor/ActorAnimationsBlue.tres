@@ -1,0 +1,196 @@
+[gd_resource type="SpriteFrames" load_steps=32 format=2]
+
+[ext_resource path="res://Assets/Puny-Characters/Soldier-Blue.png" type="Texture" id=1]
+
+[sub_resource type="AtlasTexture" id=205]
+atlas = ExtResource( 1 )
+region = Rect2( 160, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=206]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=207]
+atlas = ExtResource( 1 )
+region = Rect2( 224, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=208]
+atlas = ExtResource( 1 )
+region = Rect2( 160, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=209]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=210]
+atlas = ExtResource( 1 )
+region = Rect2( 224, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=211]
+atlas = ExtResource( 1 )
+region = Rect2( 160, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=212]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=213]
+atlas = ExtResource( 1 )
+region = Rect2( 224, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=214]
+atlas = ExtResource( 1 )
+region = Rect2( 160, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=215]
+atlas = ExtResource( 1 )
+region = Rect2( 192, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=216]
+atlas = ExtResource( 1 )
+region = Rect2( 224, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=266]
+atlas = ExtResource( 1 )
+region = Rect2( 608, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=238]
+atlas = ExtResource( 1 )
+region = Rect2( 704, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=217]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=218]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 64, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=219]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=220]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=221]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=222]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=223]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=224]
+atlas = ExtResource( 1 )
+region = Rect2( 32, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=195]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=196]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 96, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=225]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=226]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 128, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=197]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=198]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=199]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=200]
+atlas = ExtResource( 1 )
+region = Rect2( 96, 192, 32, 32 )
+
+[resource]
+animations = [ {
+"frames": [ SubResource( 205 ), SubResource( 206 ), SubResource( 207 ) ],
+"loop": false,
+"name": "Attack_E",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 208 ), SubResource( 209 ), SubResource( 210 ) ],
+"loop": true,
+"name": "Attack_N",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 211 ), SubResource( 212 ), SubResource( 213 ) ],
+"loop": true,
+"name": "Attack_S",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 214 ), SubResource( 215 ), SubResource( 216 ) ],
+"loop": true,
+"name": "Attack_W",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 266 ) ],
+"loop": true,
+"name": "Attacked",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 238 ) ],
+"loop": true,
+"name": "Death",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 217 ), SubResource( 218 ) ],
+"loop": true,
+"name": "Idle_E",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 219 ), SubResource( 220 ) ],
+"loop": true,
+"name": "Idle_N",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 221 ), SubResource( 222 ) ],
+"loop": true,
+"name": "Idle_S",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 223 ), SubResource( 224 ) ],
+"loop": true,
+"name": "Idle_W",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 195 ), SubResource( 196 ) ],
+"loop": true,
+"name": "Run_E",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 225 ), SubResource( 226 ) ],
+"loop": true,
+"name": "Run_N",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 197 ), SubResource( 198 ) ],
+"loop": true,
+"name": "Run_S",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 199 ), SubResource( 200 ) ],
+"loop": true,
+"name": "Run_W",
+"speed": 5.0
+} ]

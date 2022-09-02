@@ -2,7 +2,7 @@ extends Camera2D
 
 #var target = get_tree.get_child("Player").get_global_position()
 
-
+var parent
 var zoom_level = 3.0
 const MIN_ZOOM = 0.5
 const MAX_ZOOM = 6.0

@@ -5,16 +5,17 @@ class_name StateManager
 export (String) var starting_state
 
 var current_state : BaseState
+var parent
 
 onready var states = {}
 
 func _ready():
 	add_to_group("StateManager")
 
-func init(parent):
+func init(new_parent):
+	parent = new_parent
 	for child in get_children():
-		child.parent = parent
-		child.states = states
+		child.parent = new_parent
 	change_state(starting_state)
 	
 func _physics_process(delta: float) -> void:
