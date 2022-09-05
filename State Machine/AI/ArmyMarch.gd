@@ -5,19 +5,20 @@ var patrolidx = 0
 var move_target
 
 func _ready():
-	get_patrol_child()
-	follow_patrol_path()
+	if get_patrol_child():
+		follow_patrol_path()
 	
 
 func physics_run(_delta):
-	if parent.calc_center_of_group().distance_to(move_target) < 100 :
-		follow_patrol_path()
-	set_march_target()
+	if get_patrol_child():
+		if parent.calc_center_of_group().distance_to(move_target) < 100 :
+			follow_patrol_path()
+	parent.set_target(get_target())
+	
+	if !parent.enemy_detector.enemy_array.empty():
+		return "ArmyAttack"
 
-func set_march_target():
-	for child in parent.get_children():
-		if child.is_in_group("Actor"):
-			child.target = get_target()
+
 
 func set_target(new_target):
 	move_target = new_target

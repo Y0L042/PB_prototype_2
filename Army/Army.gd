@@ -2,12 +2,12 @@ extends YSort
 
 class_name Army
 
-var controller
+#to be phased out with programatic instancing
+export (PackedScene) var controller
 
 onready var enemy_detector = $EnemyDetector
 
 
-export (Resource) var actor_texture
 var army_position = Vector2.ZERO
 
 
@@ -15,31 +15,34 @@ var target = Vector2.ZERO
 
 func _ready() -> void:
 	set_controller()
-	controller.init(self)
+	
 	set_child_actor_army()
 	enemy_detector.set_parent(self)
 	army_position = calc_center_of_group()
 
 func _physics_process(delta: float) -> void:
-	if set_controller():
-		controller._physics_process(delta)
+	controller._physics_process(delta)
 	army_position = calc_center_of_group()
 	enemy_detector.set_global_position(army_position)
 
-
+func load_scene(scene):
+	var instanced_scene = scene.instance()
+	add_child(instanced_scene)
+	return instanced_scene
 
 func set_controller():
-	for child in get_children():
-		if child.is_in_group("StateManager"):
-			controller = child
-			break
-
+	controller = load_scene(controller)
+	controller.init(self)
 
 func set_child_actor_army():
 	for child in get_children():
 		if child.is_in_group("Actor"):
 			child.set_army(self)
-#			child.load_spritesheet(actor_texture)
+
+func set_target(new_target):
+	for child in get_children():
+		if child.is_in_group("Actor"):
+			child.target = new_target
 
 
 
@@ -52,3 +55,4 @@ func calc_center_of_group():
 			center += child.get_global_position()
 	center /= child_count
 	return center
+

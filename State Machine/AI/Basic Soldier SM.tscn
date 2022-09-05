@@ -2,13 +2,14 @@
 
 [ext_resource path="res://State Machine/AI/BasicSoldierSM.gd" type="Script" id=1]
 [ext_resource path="res://State Machine/AI/ActorMarch.gd" type="Script" id=2]
-[ext_resource path="res://State Machine/AI/ActorCombat.gd" type="Script" id=3]
+[ext_resource path="res://State Machine/AI/ActorAttack.gd" type="Script" id=3]
 
 [node name="Basic Soldier SM" type="Node2D"]
 script = ExtResource( 1 )
+starting_state = "ActorMarch"
 
 [node name="ActorMarch" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
-[node name="ActorCombat" type="Node2D" parent="."]
+[node name="ActorAttack" type="Node2D" parent="."]
 script = ExtResource( 3 )

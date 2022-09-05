@@ -1,19 +1,11 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Army/Army.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Actor/Actor.tscn" type="PackedScene" id=2]
-[ext_resource path="res://State Machine/AI/Vanilla Army.tscn" type="PackedScene" id=3]
+[ext_resource path="res://State Machine/AI/Basic Army SM.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/temp background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://State Machine/AI/Basic Soldier SM.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Puny-Characters/Soldier-Blue.png" type="Texture" id=6]
-[ext_resource path="res://Player/cameraTD.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Player/Player SM.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/Puny-Characters/Soldier-Red.png" type="Texture" id=9]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, -3606, -2055, 0, 0, 0, 0, -4538, -1652, 0, 0, 0, 0, -4881, -633, 0, 0, 0, 0, -4926, 532, 0, 0, 0, 0, -4551, 1574, 0, 0, 0, 0, -2824, 2012, 0, 0, 0, 0, -2086, 1061, 0, 0, 0, 0, -1833, -331, 0, 0, 0, 0, -2538, -1957, 0, 0, 0, 0, -3044, -2075 )
-}
 
 [node name="Sandbox" type="Node2D"]
 
@@ -26,85 +18,14 @@ __meta__ = {
 [node name="Armies" type="YSort" parent="."]
 
 [node name="PlayerArmy" parent="Armies" instance=ExtResource( 1 )]
-actor_texture = ExtResource( 6 )
-
-[node name="Player SM" parent="Armies/PlayerArmy" instance=ExtResource( 8 )]
-
-[node name="cameraTD" parent="Armies/PlayerArmy/Player SM" instance=ExtResource( 7 )]
+controller = ExtResource( 8 )
 
 [node name="Actor1" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
 position = Vector2( 1693, -516 )
-
-[node name="Basic Soldier SM" parent="Armies/PlayerArmy/Actor1" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor2" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
-position = Vector2( 1850, 517 )
-
-[node name="Basic Soldier SM" parent="Armies/PlayerArmy/Actor2" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor3" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
-position = Vector2( 2705, -580 )
-
-[node name="Basic Soldier SM" parent="Armies/PlayerArmy/Actor3" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor4" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
-position = Vector2( 2862, 453 )
-
-[node name="Basic Soldier SM" parent="Armies/PlayerArmy/Actor4" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor5" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
-position = Vector2( 3632, -616 )
-
-[node name="Basic Soldier SM" parent="Armies/PlayerArmy/Actor5" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor6" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
-position = Vector2( 3789, 417 )
-
-[node name="Basic Soldier SM" parent="Armies/PlayerArmy/Actor6" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
+controller = ExtResource( 5 )
 
 [node name="NPCArmy1" parent="Armies" instance=ExtResource( 1 )]
-actor_texture = ExtResource( 9 )
-
-[node name="Vanilla Army SM" parent="Armies/NPCArmy1" instance=ExtResource( 3 )]
-starting_state = "ArmyMarch"
-
-[node name="PatrolPath" type="Path2D" parent="Armies/NPCArmy1/Vanilla Army SM/ArmyMarch" index="0" groups=["Patrol"]]
-curve = SubResource( 1 )
+controller = ExtResource( 3 )
 
 [node name="Actor1" parent="Armies/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -4952, 380 )
-
-[node name="Basic Soldier SM" parent="Armies/NPCArmy1/Actor1" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor2" parent="Armies/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5385, 195 )
-
-[node name="Basic Soldier SM" parent="Armies/NPCArmy1/Actor2" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor3" parent="Armies/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -5271, -200 )
-
-[node name="Basic Soldier SM" parent="Armies/NPCArmy1/Actor3" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor4" parent="Armies/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -4605, -276 )
-
-[node name="Basic Soldier SM" parent="Armies/NPCArmy1/Actor4" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[node name="Actor5" parent="Armies/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -4424, 157 )
-
-[node name="Basic Soldier SM" parent="Armies/NPCArmy1/Actor5" instance=ExtResource( 5 )]
-starting_state = "ActorMarch"
-
-[editable path="Armies/NPCArmy1/Vanilla Army SM"]
+controller = ExtResource( 5 )

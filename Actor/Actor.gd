@@ -1,11 +1,13 @@
 extends KinematicBody2D
 
+class_name Actor
+
 var actor = self
 export (int) var MOVE_SPEED = 200
 export (int) var HEALTH = 3
 export (int) var DAMAGE = 1
 
-var controller
+export (PackedScene) var controller
 
 
 
@@ -24,18 +26,26 @@ var isDead : bool = false
 
 func _ready() -> void:
 	set_controller()
-	controller.init(self)
+	
 	actor_detector.set_parent(self)
 	attack_range.set_parent(self)
 	animationlist.set_parent(self)
 
 func _physics_process(delta: float) -> void:
+	
 	controller._physics_process(delta)
 
+func load_scene(scene):
+	var instanced_scene = scene.instance()
+	add_child(instanced_scene)
+	return instanced_scene
+
 func set_controller():
-	for child in get_children():
-		if child.is_in_group("StateManager"):
-			controller = child
+#	for child in get_children():
+#		if child.is_in_group("StateManager"):
+#			controller = child
+	controller = load_scene(controller)
+	controller.init(self)
 
 
 func set_army(new_army):

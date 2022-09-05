@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player SM.gd" type="Script" id=1]
 [ext_resource path="res://Player/PlayerMarch.gd" type="Script" id=2]
+[ext_resource path="res://Player/cameraTD.tscn" type="PackedScene" id=3]
 
 [node name="Player SM" type="Node2D"]
 script = ExtResource( 1 )
 starting_state = "PlayerMarch"
+
+[node name="cameraTD" parent="." instance=ExtResource( 3 )]
 
 [node name="PlayerMarch" type="Node2D" parent="."]
 script = ExtResource( 2 )
