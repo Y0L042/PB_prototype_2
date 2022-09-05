@@ -1,5 +1,8 @@
 [gd_scene load_steps=26 format=2]
 
+[sub_resource type="StreamTexture" id=1]
+load_path = "res://.import/BlueSoldier.png-f55f28e6e9d65f938b27bd82b4398ba2.stex"
+
 [sub_resource type="Animation" id=2]
 length = 0.6
 loop = true
@@ -128,7 +131,7 @@ tracks/0/keys = {
 "values": [ 139.0, 140.0 ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -144,7 +147,7 @@ tracks/0/keys = {
 "values": [ 70.0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -160,7 +163,7 @@ tracks/0/keys = {
 "values": [ 116.0 ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=12]
 length = 0.3
 loop = true
 tracks/0/type = "value"
@@ -384,11 +387,17 @@ tracks/0/keys = {
 "values": [ 137.0, 138.0 ]
 }
 
-[sub_resource type="StreamTexture" id=27]
-load_path = "res://.import/BlueSoldierBlueSoldier.png-74f53fe85e0935afc49d05a971619f27.stex"
+[node name="Sprite" type="Sprite"]
+scale = Vector2( 10, 10 )
+texture = SubResource( 1 )
+hframes = 14
+vframes = 13
+frame = 155
+__meta__ = {
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL0Fzc2V0cy9QdW55LUNoYXJhY3RlcnMvU29sZGllci5hc2UKbGF5ZXJ8PUJsdWVTb2xkaWVyCm9wX2V4cHw9RmFsc2UKb19mb2xkZXJ8PQpvX25hbWV8PQpvbmx5X3Zpc2libGV8PUZhbHNlCm9fZXhfcHw9Cg=="
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer"]
-root_node = NodePath("BlueSoldier")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/AttackE = SubResource( 2 )
 anims/AttackN = SubResource( 3 )
 anims/AttackS = SubResource( 4 )
@@ -397,9 +406,9 @@ anims/ChargeE = SubResource( 6 )
 anims/ChargeN = SubResource( 7 )
 anims/ChargeS = SubResource( 8 )
 anims/ChargeW = SubResource( 9 )
-anims/DeadE = SubResource( 11 )
-anims/DeadN = SubResource( 12 )
-anims/DeadS = SubResource( 26 )
+anims/DeadE = SubResource( 10 )
+anims/DeadN = SubResource( 11 )
+anims/DeadS = SubResource( 12 )
 anims/DeadW = SubResource( 13 )
 anims/HitE = SubResource( 14 )
 anims/HitN = SubResource( 15 )
@@ -413,21 +422,3 @@ anims/RunE = SubResource( 22 )
 anims/RunN = SubResource( 23 )
 anims/RunS = SubResource( 24 )
 anims/RunW = SubResource( 25 )
-
-[node name="BlueSoldier" type="Sprite" parent="."]
-texture = SubResource( 27 )
-hframes = 14
-vframes = 13
-frame = 50
-__meta__ = {
-"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL0Fzc2V0cy9QdW55LUNoYXJhY3RlcnMvU29sZGllci1CbHVlLmFzZQpsYXllcnw9Qmx1ZVNvbGRpZXIKb3BfZXhwfD1GYWxzZQpvX2ZvbGRlcnw9cmVzOi8vQXNzZXRzL1B1bnktQ2hhcmFjdGVycy9BbmltYXRpb25zCm9fbmFtZXw9Qmx1ZVNvbGRpZXIKb25seV92aXNpYmxlfD1UcnVlCm9fZXhfcHw9Cg=="
-}
-
-[node name="RedSoldier" type="Sprite" parent="."]
-texture = SubResource( 27 )
-hframes = 14
-vframes = 13
-frame = 50
-__meta__ = {
-"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL0Fzc2V0cy9QdW55LUNoYXJhY3RlcnMvU29sZGllci1CbHVlLmFzZQpsYXllcnw9Qmx1ZVNvbGRpZXIKb3BfZXhwfD1GYWxzZQpvX2ZvbGRlcnw9cmVzOi8vQXNzZXRzL1B1bnktQ2hhcmFjdGVycy9BbmltYXRpb25zCm9fbmFtZXw9Qmx1ZVNvbGRpZXIKb25seV92aXNpYmxlfD1UcnVlCm9fZXhfcHw9Cg=="
-}

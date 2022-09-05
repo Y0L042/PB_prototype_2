@@ -1,0 +1,9 @@
+[gd_scene format=2]
+
+[node name="AnimationPlayer" type="AnimationPlayer"]
+root_node = NodePath("Sprite")
+
+[node name="Sprite" type="Sprite" parent="."]
+__meta__ = {
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PS4Kc291cmNlfD1yZXM6Ly9Bc3NldHMvUHVueS1DaGFyYWN0ZXJzL1NvbGRpZXIuYXNlCmxheWVyfD1SZWRTb2xkaWVyDQpvcF9leHB8PUZhbHNlCm9fZm9sZGVyfD0Kb19uYW1lfD0Kb25seV92aXNpYmxlfD1UcnVlCm9fZXhfcHw9Cg=="
+}

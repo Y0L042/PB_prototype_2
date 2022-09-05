@@ -5,20 +5,22 @@ export (int) var MOVE_SPEED = 200
 export (int) var HEALTH = 3
 export (int) var DAMAGE = 1
 
-var isDead : bool = false
-
-
 var controller
+
+
 
 onready var nav_agent = $NavigationAgent2D
 onready var actor_detector = $actor_detector
 onready var attack_range = $attack_range
 onready var animationlist = $animationlist
-onready var anim_player = $animations
+
+onready var sprite = $AnimationPlayer
+onready var anim_player = $AnimationPlayer/AnimationPlayer
 
 var army : Army setget set_army, get_army
 var target setget set_target, get_target
 
+var isDead : bool = false
 
 func _ready() -> void:
 	set_controller()
