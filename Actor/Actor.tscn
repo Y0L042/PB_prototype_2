@@ -21,7 +21,6 @@ radius = 10.0
 
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
-disabled = true
 
 [node name="animationlist" type="Node2D" parent="."]
 script = ExtResource( 7 )

@@ -26,7 +26,9 @@ func instantiate_player_army():
 func instantiate_npc_armies():
 	var npc_army = army_scene.instance()
 	npc_army.controller = npc_controller_default
-	npc_army.army_position = Vector2(1000,1000)
-	npc_army.actor_factory(NPC_ARMIES_AMOUNT, npc_army.position)
 	add_child(npc_army)
+	npc_army.army_position = Vector2(5000,5000)
+	npc_army.set_global_position(npc_army.army_position)
+	npc_army.actor_factory(NPC_ARMIES_AMOUNT, npc_army.position)
+	
 	
