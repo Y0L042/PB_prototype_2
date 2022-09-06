@@ -15,15 +15,13 @@ func _physics_process(_delta):
 		remove_dead_actors()
 
 func _on_actor_detector_body_entered(body):
-	actor_array.append(body)
-	if body.army == parent.army:
+	if body.army == parent.army and !body.isDead:
 		friendly_array.append(body)
-	elif body.army != parent.army:
+	elif body.army != parent.army and !body.isDead:
 		enemy_array.append(body)
 
 
 func _on_actor_detector_body_exited(body):
-	actor_array.remove(actor_array.find(body))
 	if body.army == parent.army:
 		friendly_array.remove(friendly_array.find(body))
 	elif body.army != parent.army:
@@ -33,9 +31,6 @@ func remove_actor(array, body):
 	array.remove(array.find(body))
 
 func remove_dead_actors():
-	for actor in actor_array:
-		if actor.isDead:
-			remove_actor(actor_array, actor)
 	for actor in friendly_array:
 		if actor.isDead:
 			remove_actor(friendly_array, actor)

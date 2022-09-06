@@ -1,15 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Actor/Animations/SoldierBlue.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Tools/actor_detector.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Actor/Actor.gd" type="Script" id=3]
-[ext_resource path="res://Actor/actor_detector.gd" type="Script" id=5]
 [ext_resource path="res://Actor/animationlist.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.833
-
-[sub_resource type="CircleShape2D" id=2]
-radius = 291.076
 
 [node name="Actor" type="KinematicBody2D" groups=["Actor"]]
 script = ExtResource( 3 )
@@ -28,29 +25,11 @@ shape = SubResource( 1 )
 [node name="animationlist" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
-[node name="actor_detector" type="Area2D" parent="."]
-script = ExtResource( 5 )
+[node name="actor_detector" parent="." instance=ExtResource( 2 )]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="actor_detector"]
-self_modulate = Color( 1, 1, 1, 0.301961 )
-show_behind_parent = true
-shape = SubResource( 2 )
-
-[node name="attack_range" type="Area2D" parent="."]
-script = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attack_range"]
-self_modulate = Color( 1, 1, 1, 0.282353 )
-show_behind_parent = true
-scale = Vector2( 0.5, 0.5 )
-shape = SubResource( 2 )
+[node name="attack_range" parent="." instance=ExtResource( 2 )]
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 1 )]
 __meta__ = {
 "_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL0Fzc2V0cy9QdW55LUNoYXJhY3RlcnMvU29sZGllci5hc2UKbGF5ZXJ8PUJsdWVTb2xkaWVyDQpvcF9leHB8PUZhbHNlCm9fZm9sZGVyfD0Kb19uYW1lfD0Kb25seV92aXNpYmxlfD1GYWxzZQpvX2V4X3B8PQo="
 }
-
-[connection signal="body_entered" from="actor_detector" to="actor_detector" method="_on_actor_detector_body_entered"]
-[connection signal="body_exited" from="actor_detector" to="actor_detector" method="_on_actor_detector_body_exited"]
-[connection signal="body_entered" from="attack_range" to="attack_range" method="_on_actor_detector_body_entered"]
-[connection signal="body_exited" from="attack_range" to="attack_range" method="_on_actor_detector_body_exited"]

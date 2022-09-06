@@ -20,12 +20,15 @@ __meta__ = {
 [node name="PlayerArmy" parent="Armies" instance=ExtResource( 1 )]
 controller = ExtResource( 8 )
 
-[node name="Actor1" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
-position = Vector2( 1693, -516 )
+[node name="ActorPlayer1" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 3840, -163 )
 controller = ExtResource( 5 )
 
 [node name="NPCArmy1" parent="Armies" instance=ExtResource( 1 )]
 controller = ExtResource( 3 )
 
-[node name="Actor1" parent="Armies/NPCArmy1" instance=ExtResource( 2 )]
+[node name="ActorArmy11" parent="Armies/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -2964, 1 )
 controller = ExtResource( 5 )
+
+[editable path="Armies/PlayerArmy"]

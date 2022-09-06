@@ -7,7 +7,7 @@ export (PackedScene) var controller
 
 onready var enemy_detector = $EnemyDetector
 
-
+var soldiers_array = []
 var army_position = Vector2.ZERO
 
 
@@ -15,7 +15,7 @@ var target = Vector2.ZERO
 
 func _ready() -> void:
 	set_controller()
-	
+
 	set_child_actor_army()
 	enemy_detector.set_parent(self)
 	army_position = calc_center_of_group()
@@ -38,6 +38,12 @@ func set_child_actor_army():
 	for child in get_children():
 		if child.is_in_group("Actor"):
 			child.set_army(self)
+			soldiers_array.append(child)
+
+func remove_dead_soldiers():
+	for soldier in soldiers_array:
+		if soldier.isDead:
+			soldiers_array.remove(soldiers_array.find(soldier))
 
 func set_target(new_target):
 	for child in get_children():

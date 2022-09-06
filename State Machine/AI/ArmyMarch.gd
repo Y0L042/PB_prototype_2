@@ -7,15 +7,16 @@ var move_target
 func _ready():
 	if get_patrol_child():
 		follow_patrol_path()
-	
+
 
 func physics_run(_delta):
 	if get_patrol_child():
 		if parent.calc_center_of_group().distance_to(move_target) < 100 :
 			follow_patrol_path()
 	parent.set_target(get_target())
-	
+
 	if !parent.enemy_detector.enemy_array.empty():
+		print("statechange -> armyattack")
 		return "ArmyAttack"
 
 

@@ -24,15 +24,18 @@ var target setget set_target, get_target
 
 var isDead : bool = false
 
+func enter():
+	print("lskjdf")
+
 func _ready() -> void:
 	set_controller()
-	
+
 	actor_detector.set_parent(self)
 	attack_range.set_parent(self)
 	animationlist.set_parent(self)
 
 func _physics_process(delta: float) -> void:
-	
+
 	controller._physics_process(delta)
 
 func load_scene(scene):
@@ -65,17 +68,17 @@ func load_spritesheet(file):
 
 func move_to_target(pathfind, new_target):
 	var move_velocity = Vector2.ZERO
-	
+
 	if new_target == null:
 		new_target = Vector2.ZERO
-		
+
 	var move_target = new_target
 	if pathfind:
 		nav_agent.set_target_location(move_target)
 		move_target = nav_agent.get_next_location()
 	move_velocity = get_global_position().direction_to(move_target).normalized() * MOVE_SPEED
 	move_and_slide(move_velocity)
-	
+
 	animationlist.animation_flip_sprite(move_velocity)
 	animationlist.animation_run()
 

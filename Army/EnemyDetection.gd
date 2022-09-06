@@ -9,11 +9,12 @@ func set_parent(new_parent):
 
 func _on_EnemyDetector_body_entered(body):
 	if body.army != parent:
-		enemy_array.append(body)
+		if !enemy_array.has(body.army):
+			enemy_array.append(body.army)
 
 
 func _on_EnemyDetector_body_exited(body):
-	enemy_array.remove(enemy_array.find(body))
+	enemy_array.remove(enemy_array.find(body.army))
 
-func remove_actor(array, actor):
-	array.remove(array.find(actor))
+func remove_army(array, army):
+	array.remove(array.find(army))

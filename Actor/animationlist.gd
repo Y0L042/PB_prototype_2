@@ -17,13 +17,13 @@ func animation_flip_sprite(velocity):
 
 func animation_run():
 	anim_player.play("RunW")
-	
+
 func animation_dead():
-	anim_player.play("DeathW")
+	anim_player.play("DeadW")
 
 func animation_attack():
 	anim_player.play("AttackW")
-	
+
 func animation_attacked():
-	anim_player.play("Attacked")
+	anim_player.play("HitW")
 

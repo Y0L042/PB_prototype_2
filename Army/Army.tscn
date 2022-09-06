@@ -7,9 +7,3 @@
 script = ExtResource( 1 )
 
 [node name="EnemyDetector" parent="." instance=ExtResource( 4 )]
-
-[node name="CollisionShape2D" parent="EnemyDetector" index="0"]
-self_modulate = Color( 1, 1, 1, 0.447059 )
-show_behind_parent = true
-
-[editable path="EnemyDetector"]

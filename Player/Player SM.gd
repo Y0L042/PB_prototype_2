@@ -5,7 +5,8 @@ onready var blue_actor = "res://Assets/Puny-Characters/Soldier-Red.png"
 
 func _ready():
 	states = {
-		"PlayerMarch" : $PlayerMarch
+		"PlayerMarch" : $PlayerMarch,
+		"PlayerAttack" : $PlayerAttack
 	}
 	
 
