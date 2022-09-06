@@ -5,7 +5,7 @@
 [ext_resource path="res://State Machine/AI/Basic Army SM.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/temp background.tscn" type="PackedScene" id=4]
 [ext_resource path="res://State Machine/AI/Basic Soldier SM.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player/Player SM.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Player/Player SM.tscn" type="PackedScene" id=6]
 
 [node name="Sandbox" type="Node2D"]
 
@@ -15,20 +15,24 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Armies" type="YSort" parent="."]
+[node name="ArmieSpawner" type="YSort" parent="."]
 
-[node name="PlayerArmy" parent="Armies" instance=ExtResource( 1 )]
-controller = ExtResource( 8 )
+[node name="PlayerArmy" parent="ArmieSpawner" instance=ExtResource( 1 )]
+controller = ExtResource( 6 )
 
-[node name="ActorPlayer1" parent="Armies/PlayerArmy" instance=ExtResource( 2 )]
+[node name="ActorPlayer1" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
 position = Vector2( 3840, -163 )
 controller = ExtResource( 5 )
 
-[node name="NPCArmy1" parent="Armies" instance=ExtResource( 1 )]
-controller = ExtResource( 3 )
-
-[node name="ActorArmy11" parent="Armies/NPCArmy1" instance=ExtResource( 2 )]
-position = Vector2( -2964, 1 )
+[node name="ActorPlayer2" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 4066, 448 )
 controller = ExtResource( 5 )
 
-[editable path="Armies/PlayerArmy"]
+[node name="NPCArmy1" parent="ArmieSpawner" instance=ExtResource( 1 )]
+controller = ExtResource( 3 )
+
+[node name="ActorArmyOne1" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -3196, -527 )
+controller = ExtResource( 5 )
+
+[editable path="ArmieSpawner/PlayerArmy"]
