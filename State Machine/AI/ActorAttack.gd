@@ -21,7 +21,7 @@ func physics_run(_delta):
 
 		if !attack_range_enemy_array.empty() and (attack_timer.get_time_left() <= 0.0):
 			attack_timer.start()
-			print("attacking")
+			# print("attacking")
 			parent.animationlist.animation_attack()
 			attack_range_enemy_array[0].take_damage(parent.DAMAGE)
 

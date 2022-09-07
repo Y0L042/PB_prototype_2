@@ -24,9 +24,9 @@ var army : Army setget set_army, get_army
 var target setget set_target, get_target
 
 var isDead : bool = false
+signal isDeadSignal
 
-func enter():
-	print("lskjdf")
+
 
 func _ready() -> void:
 	set_controller()
@@ -90,3 +90,11 @@ func take_damage(damage):
 		animationlist.animation_dead()
 		isDead = true
 		set_physics_process(false)
+
+func _emit_is_dead():
+	emit_signal("isDeadSignal", self)
+
+func resurrect():
+	isDead = false
+	HEALTH = 3
+	controller.init(self)
