@@ -28,11 +28,71 @@ controller = ExtResource( 5 )
 position = Vector2( 4100, 17 )
 controller = ExtResource( 5 )
 
+[node name="ActorPlayer3" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 3777, 726 )
+controller = ExtResource( 5 )
+
+[node name="ActorPlayer4" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 4037, 906 )
+controller = ExtResource( 5 )
+
+[node name="ActorPlayer5" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 4657, 1247 )
+controller = ExtResource( 5 )
+
+[node name="ActorPlayer6" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 4917, 1427 )
+controller = ExtResource( 5 )
+
+[node name="ActorPlayer7" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 4819, 636 )
+controller = ExtResource( 5 )
+
+[node name="ActorPlayer8" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 5079, 816 )
+controller = ExtResource( 5 )
+
+[node name="ActorPlayer9" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 4944, -711 )
+controller = ExtResource( 5 )
+
+[node name="ActorPlayer10" parent="ArmieSpawner/PlayerArmy" instance=ExtResource( 2 )]
+position = Vector2( 5204, -531 )
+controller = ExtResource( 5 )
+
 [node name="NPCArmy1" parent="ArmieSpawner" instance=ExtResource( 1 )]
 controller = ExtResource( 3 )
 
 [node name="ActorArmyOne1" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
 position = Vector2( -3196, -527 )
+controller = ExtResource( 5 )
+
+[node name="ActorArmyOne2" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -3295, -1129 )
+controller = ExtResource( 5 )
+
+[node name="ActorArmyOne3" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -3034, -2000 )
+controller = ExtResource( 5 )
+
+[node name="ActorArmyOne4" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -3133, -2602 )
+controller = ExtResource( 5 )
+
+[node name="ActorArmyOne5" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -4040, -482 )
+controller = ExtResource( 5 )
+
+[node name="ActorArmyOne6" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -4139, -1084 )
+controller = ExtResource( 5 )
+
+[node name="ActorArmyOne7" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -3878, -1955 )
+controller = ExtResource( 5 )
+
+[node name="ActorArmyOne8" parent="ArmieSpawner/NPCArmy1" instance=ExtResource( 2 )]
+position = Vector2( -3977, -2557 )
 controller = ExtResource( 5 )
 
 [editable path="ArmieSpawner/PlayerArmy"]

@@ -9,5 +9,5 @@
 
 [node name="ArmySpawner" type="YSort" parent="."]
 script = ExtResource( 2 )
-NPC_ARMIES_AMOUNT = 100
+NPC_ARMIES_AMOUNT = 10
 ARMY_SIZES = 1

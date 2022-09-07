@@ -1,5 +1,10 @@
 extends BaseState
 
+func enter():
+#	for child in parent.get_children():
+#		if child.is_in_group("Actor"):
+#			child.controller.change_state("ActorMarch")
+	pass
 
 func physics_run(_delta):
 	set_march_target()

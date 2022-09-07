@@ -92,7 +92,13 @@ func take_damage(damage):
 func _emit_is_dead():
 	emit_signal("isDeadSignal", self)
 
+func actor_dies():
+	animationlist.animation_dead()
+	collision.set_disabled(true)
+	_emit_is_dead()
+
 func resurrect():
 	isDead = false
 	HEALTH = 3
 	controller.init(self)
+	collision.set_disabled(false)
