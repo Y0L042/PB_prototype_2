@@ -3,7 +3,7 @@ extends BaseState
 
 func physics_run(_delta):
 	set_march_target()
-	if !parent.enemy_detector.enemy_array.empty():
+	if !parent.enemy_armies_array.empty():
 		return "PlayerAttack"
 
 func set_march_target():

@@ -18,7 +18,7 @@ func physics_run(_delta):
 
 	parent.set_target(move_target)
 
-	if !parent.enemy_detector.enemy_array.empty():
+	if !parent.enemy_armies_array.empty():
 		print("statechange -> armyattack")
 		return "ArmyAttack"
 

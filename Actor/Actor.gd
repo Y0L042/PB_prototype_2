@@ -14,7 +14,6 @@ export (PackedScene) var controller
 onready var nav_agent = $NavigationAgent2D
 onready var collision = $collision
 onready var actor_detector = $actor_detector
-onready var attack_range = $attack_range
 onready var animationlist = $animationlist
 
 onready var sprite = $AnimationPlayer
@@ -32,7 +31,6 @@ func _ready() -> void:
 	set_controller()
 
 	actor_detector.set_parent(self)
-	attack_range.set_parent(self)
 	animationlist.set_parent(self)
 
 func _physics_process(delta: float) -> void:
