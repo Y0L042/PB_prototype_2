@@ -1,19 +1,37 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Actor/Animations/SoldierBlue.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tools/actor_detector.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Actor/Actor.gd" type="Script" id=3]
-[ext_resource path="res://Actor/animationlist.gd" type="Script" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 38.833
 
+[sub_resource type="Shader" id=29]
+code = "shader_type canvas_item;
+
+uniform vec4 OLDCOLOUR : hint_color;
+
+uniform vec4 NEWCOLOUR : hint_color;
+
+void fragment(){
+	vec4 curr_colour = texture(TEXTURE, UV);
+	if (curr_colour == OLDCOLOUR){
+		COLOR = NEWCOLOUR;
+	} else {COLOR = curr_colour}
+}"
+
+[sub_resource type="ShaderMaterial" id=30]
+resource_local_to_scene = true
+shader = SubResource( 29 )
+shader_param/OLDCOLOUR = Color( 0, 1, 0, 1 )
+shader_param/NEWCOLOUR = null
+
 [node name="Actor" type="KinematicBody2D" groups=["Actor"]]
 script = ExtResource( 3 )
-MOVE_SPEED = 300
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
+max_speed = 2000.0
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
 estimate_radius = false
@@ -22,12 +40,10 @@ radius = 10.0
 [node name="collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="animationlist" type="Node2D" parent="."]
-script = ExtResource( 7 )
-
 [node name="actor_detector" parent="." instance=ExtResource( 2 )]
 
-[node name="AnimationPlayer" parent="." instance=ExtResource( 1 )]
+[node name="Sprite" parent="." instance=ExtResource( 1 )]
+material = SubResource( 30 )
 __meta__ = {
 "_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL0Fzc2V0cy9QdW55LUNoYXJhY3RlcnMvU29sZGllci5hc2UKbGF5ZXJ8PUJsdWVTb2xkaWVyDQpvcF9leHB8PUZhbHNlCm9fZm9sZGVyfD0Kb19uYW1lfD0Kb25seV92aXNpYmxlfD1GYWxzZQpvX2V4X3B8PQo="
 }

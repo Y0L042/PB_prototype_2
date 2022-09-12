@@ -16,6 +16,8 @@ func init(new_parent):
 	parent = new_parent
 	for child in get_children():
 		child.parent = new_parent
+		if child.is_in_group("BaseState"):
+			child.state_manager = self
 	change_state(starting_state)
 
 func _physics_process(delta: float) -> void:
@@ -28,5 +30,7 @@ func change_state(new_state):
 	if current_state: #catches null values
 		current_state.exit()
 
+	parent._current_state = new_state
 	current_state = states[new_state]
-	current_state.enter()
+	current_state.enter(new_state)
+

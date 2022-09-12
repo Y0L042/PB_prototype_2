@@ -7,7 +7,7 @@
 
 [node name="Basic Soldier SM" type="Node2D"]
 script = ExtResource( 1 )
-starting_state = "ActorMarch"
+starting_state = "March"
 
 [node name="ActorMarch" type="Node2D" parent="."]
 script = ExtResource( 2 )

@@ -4,8 +4,10 @@ class_name Army
 
 #to be phased out with programatic instancing
 export (PackedScene) var controller
+export (Color) var ARMY_COLOUR
 
 signal army_defeated
+signal army_state_signal
 
 onready var enemy_detector = $EnemyDetector
 onready var actor_spawner = $SpawnerActor
@@ -13,6 +15,7 @@ onready var actor_spawner = $SpawnerActor
 var actor_scene = load("res://Actor/Actor.tscn")
 var actor_controller  = load("res://State Machine/AI/Basic Soldier SM.tscn")
 
+var _current_state
 var enemy_armies_array = []
 var soldiers_array = []
 var live_soldiers_array = []
@@ -28,7 +31,7 @@ func _ready() -> void:
 	add_actor_to_army()
 	set_child_actor_army(soldiers_array)
 	enemy_detector.set_parent(self)
-	army_position = calc_center_of_group()
+	army_position = calc_center_of_group(live_soldiers_array)
 
 func actor_factory(amount, position):
 	for count in amount:
@@ -63,6 +66,7 @@ func set_child_actor_army(array):
 	for child in array:
 		if child.is_in_group("Actor"):
 			child.set_army(self)
+			child.set_army_colour(ARMY_COLOUR)
 
 func resurrect_children(array):
 	for child in array:
@@ -72,20 +76,14 @@ func resurrect_children(array):
 #-------------------------------------------------------------
 
 func _physics_process(delta: float) -> void:
-	army_position = calc_center_of_group()
+	army_position = calc_center_of_group(live_soldiers_array)
 	enemy_detector.set_global_position(army_position)
 	controller._physics_process(delta)
-
-	# remove_dead_soldiers()
 
 	if live_soldiers_array.empty():
 		emit_signal("army_defeated", self, soldiers_array)
 		self.queue_free()
 
-func remove_dead_soldiers():
-	for soldier in soldiers_array:
-		if soldier.isDead:
-			soldiers_array.remove(soldiers_array.find(soldier))
 
 func _on_child_dead(child):
 	print("child is dead")
@@ -97,10 +95,10 @@ func set_target(new_target):
 			child.target = new_target
 
 
-func calc_center_of_group():
+func calc_center_of_group(array):
 	var center = Vector2.ZERO
 	var child_count = 0
-	for child in get_children():
+	for child in array:
 		if child.is_in_group("Actor"):
 			child_count += 1
 			center += child.get_global_position()

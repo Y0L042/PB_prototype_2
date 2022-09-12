@@ -1,11 +1,32 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=44 format=2]
 
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/BlueSoldier.png-f55f28e6e9d65f938b27bd82b4398ba2.stex"
+[ext_resource path="res://Actor/Animations/animationlist.gd" type="Script" id=1]
+
+[sub_resource type="Shader" id=29]
+code = "shader_type canvas_item;
+
+uniform vec4 OLDCOLOUR : hint_color;
+
+uniform vec4 NEWCOLOUR : hint_color;
+
+void fragment(){
+	vec4 curr_colour = texture(TEXTURE, UV);
+	if (curr_colour == OLDCOLOUR){
+		COLOR = NEWCOLOUR;
+	} else {COLOR = curr_colour}
+}"
+
+[sub_resource type="ShaderMaterial" id=30]
+resource_local_to_scene = true
+shader = SubResource( 29 )
+shader_param/OLDCOLOUR = Color( 0, 1, 0, 1 )
+shader_param/NEWCOLOUR = null
+
+[sub_resource type="StreamTexture" id=26]
+load_path = "res://.import/BaseSoldier.png-2b39bf97ee9c3d111ba209cfa4599213.stex"
 
 [sub_resource type="Animation" id=2]
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -21,7 +42,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=3]
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -37,7 +57,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -53,7 +72,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=5]
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -133,7 +151,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=10]
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -149,7 +166,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=11]
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -165,7 +181,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=12]
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -181,7 +196,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=13]
 length = 0.3
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -197,7 +211,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=14]
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -213,7 +226,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=15]
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -229,7 +241,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=16]
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -245,7 +256,6 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=17]
 length = 0.6
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -387,17 +397,75 @@ tracks/0/keys = {
 "values": [ 137.0, 138.0 ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=31]
+animation = "AttackE"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "DeadE"
+
+[sub_resource type="AnimationNodeAnimation" id=44]
+animation = "HitE"
+
+[sub_resource type="AnimationNodeAnimation" id=33]
+animation = "IdleE"
+
+[sub_resource type="AnimationNodeAnimation" id=34]
+animation = "RunE"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=50]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=55]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=56]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=57]
+switch_mode = 1
+xfade_time = 80.67
+priority = 0
+
+[sub_resource type="AnimationNodeStateMachine" id=27]
+states/Attack/node = SubResource( 31 )
+states/Attack/position = Vector2( 534, 323 )
+states/Dead/node = SubResource( 32 )
+states/Dead/position = Vector2( 930, 173 )
+states/Hit/node = SubResource( 44 )
+states/Hit/position = Vector2( 811, 288 )
+states/Idle/node = SubResource( 33 )
+states/Idle/position = Vector2( 534, 173 )
+states/Run/node = SubResource( 34 )
+states/Run/position = Vector2( 534, 31 )
+transitions = [ "Idle", "Run", SubResource( 35 ), "Run", "Idle", SubResource( 36 ), "Idle", "Attack", SubResource( 41 ), "Attack", "Idle", SubResource( 45 ), "Idle", "Hit", SubResource( 50 ), "Hit", "Idle", SubResource( 55 ), "Hit", "Dead", SubResource( 56 ), "Dead", "Idle", SubResource( 57 ) ]
+start_node = "Idle"
+end_node = "Dead"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=28]
+
 [node name="Sprite" type="Sprite"]
+material = SubResource( 30 )
 scale = Vector2( 10, 10 )
-texture = SubResource( 1 )
+texture = SubResource( 26 )
 hframes = 14
 vframes = 13
-frame = 54
+frame = 48
+script = ExtResource( 1 )
 __meta__ = {
-"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL0Fzc2V0cy9QdW55LUNoYXJhY3RlcnMvU29sZGllci5hc2UKbGF5ZXJ8PUJsdWVTb2xkaWVyCm9wX2V4cHw9RmFsc2UKb19mb2xkZXJ8PQpvX25hbWV8PQpvbmx5X3Zpc2libGV8PUZhbHNlCm9fZXhfcHw9Cg=="
+"_editor_description_": "YXNlcHJpdGVfd2l6YXJkX2NvbmZpZwpwbGF5ZXJ8PUFuaW1hdGlvblBsYXllcgpzb3VyY2V8PXJlczovL0Fzc2V0cy9QdW55LUNoYXJhY3RlcnMvU29sZGllci5hc2UKbGF5ZXJ8PUJhc2VTb2xkaWVyCm9wX2V4cHw9RmFsc2UKb19mb2xkZXJ8PQpvX25hbWV8PQpvbmx5X3Zpc2libGV8PUZhbHNlCm9fZXhfcHw9Cg=="
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+playback_process_mode = 0
 anims/AttackE = SubResource( 2 )
 anims/AttackN = SubResource( 3 )
 anims/AttackS = SubResource( 4 )
@@ -422,3 +490,9 @@ anims/RunE = SubResource( 22 )
 anims/RunN = SubResource( 23 )
 anims/RunS = SubResource( 24 )
 anims/RunW = SubResource( 25 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 27 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 28 )

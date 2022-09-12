@@ -5,9 +5,12 @@ var patrolidx = 0
 onready var move_target = Vector2.ZERO
 
 func _ready():
-
 	if get_patrol_child():
 		follow_patrol_path()
+
+func enter(new_name):
+	state_name = new_name
+	parent.emit_signal("army_state_signal", state_manager.ArmyMarch)
 
 
 func physics_run(_delta):
@@ -20,7 +23,7 @@ func physics_run(_delta):
 
 	if !parent.enemy_armies_array.empty():
 		print("statechange -> armyattack")
-		return "ArmyAttack"
+		return state_manager.ArmyAttack #-------------------------------------
 
 
 
@@ -38,3 +41,5 @@ func follow_patrol_path():
 	patrolidx += 1
 	if (patrolidx == patrol_path.get_curve().get_point_count()):
 		patrolidx = 0
+
+

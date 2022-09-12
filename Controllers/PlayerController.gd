@@ -1,7 +1,7 @@
 extends YSort
 
 
-var army : Army 
+var army : Army
 onready var camera_td = $"%cameraTD"
 
 func _ready():

@@ -4,13 +4,21 @@ class_name BaseState
 
 var states = {}
 
-var parent
+var FORCE_RETURN : bool
+var FORCE_RETURN_VALUE
 
-func enter():
-	pass
+var parent
+var state_manager
+var state_name
+
+func _ready():
+	add_to_group("BaseState")
+
+func enter(new_state_name):
+	state_name = new_state_name
 
 func physics_run(_delta: float):
-	return null 
+	return null
 
 func exit():
 	pass

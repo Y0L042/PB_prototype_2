@@ -1,7 +1,7 @@
 extends YSort
 
 
-var army : Army 
+var army : Army
 
 
 func _ready():

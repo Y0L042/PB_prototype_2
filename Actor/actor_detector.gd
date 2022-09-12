@@ -15,7 +15,7 @@ func _on_actor_detector_body_entered(body):
 func _on_actor_detector_body_exited(body):
 	if parent.isDead:
 		actor_array.clear()
-	elif body != parent:
+	elif !actor_array.empty() and body != parent and actor_array.find(body) != -1:
 		actor_array.remove(actor_array.find(body))
 
 
